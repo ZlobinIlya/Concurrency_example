@@ -2,6 +2,7 @@ package com.epam.jtc.zlobin.bank;
 
 public class Opperations {
     public static void main(String[] args) throws InsufficientFundsExeptions {
+
         final Account a = new Account(1000);
         final Account b = new Account(2000);
         Process process1 = new Process(a,b,500, "Первый");

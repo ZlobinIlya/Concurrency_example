@@ -29,6 +29,7 @@ public class Process extends Thread {
         if (a.getBalance() < i) throw new InsufficientFundsExeptions();
         synchronized (a) {
             System.out.println("Засинхронил - A  " + name );
+
             synchronized (b) {
                 System.out.println("Засинхронил - Б  " + name);
                 a.withdraw(i);
