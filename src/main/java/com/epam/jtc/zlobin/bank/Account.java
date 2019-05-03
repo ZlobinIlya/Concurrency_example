@@ -1,11 +1,13 @@
 package com.epam.jtc.zlobin.bank;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Account {
     private int balance;
-    private int faildCounter;
+    private LongAdder faildCounter  = new LongAdder();
     private final Lock lock = new ReentrantLock();
 
 
@@ -13,12 +15,12 @@ public class Account {
         return balance;
     }
 
-    public int getFaildCounter() {
-        return faildCounter;
+    public Long getFaildCounter() {
+        return faildCounter.sum();
     }
 
     public void incFaildCount(){
-        faildCounter++;
+        faildCounter.increment();
     }
 
     public Account(int initialBalance) {
